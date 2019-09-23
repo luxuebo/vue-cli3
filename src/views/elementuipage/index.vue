@@ -38,8 +38,8 @@
   </div>
 </template>
 <script>
-import zMenu from "../components/elementui/components/AsideMenu";
-import { menuTreeData } from "../mock/menu.js";
+import zMenu from "../../components/elementui/components/AsideMenu";
+import { menuTreeData } from "../../mock/menu.js";
 import { mapState } from 'vuex';
 export default {
   name: "elementui",
@@ -82,7 +82,7 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-@import url('../assets/icon/iconfont.css');
+@import url('../../assets/icon/iconfont.css');
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 200px;
   min-height: 400px;

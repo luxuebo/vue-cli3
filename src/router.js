@@ -11,6 +11,13 @@ export default new Router({
       component: login
     },
     {
+      path: '/test',
+      meta:{
+        name:'测试页'
+      },
+      component: () => import('./views/test/index.vue')
+    },
+    {
       path: '/home',
       meta:{
         name:'首页'
@@ -22,31 +29,38 @@ export default new Router({
       meta:{
         name:'使用vuex'
       },
-      component: () => import('./views/vuex.vue')
+      component: () => import('./views/vuex/index.vue')
     },
     {
       path: '/proxy',
       meta:{
         name:'使用代理'
       },
-      component: () => import('./views/proxy.vue')
+      component: () => import('./views/proxy/index.vue')
     },
     {
-      path: '/offWebMenu',
+      path: '/jquery',
       meta:{
-        name:'element菜单'
+        name:'使用jquery'
       },
-      component: () => import('./components/OffWebMenu.vue')
+      component: () => import('./views/jquery/index.vue')
+    },
+    {
+      path: '/extends',
+      meta:{
+        name:'使用extends'
+      },
+      component: () => import('./views/extends/index.vue')
     },
     {
       path: '/elementui',
       meta:{
         name:'elementui页面'
       },
-      component: () => import('./views/elementuipage.vue'),
+      component: () => import('./views/elementuipage/index.vue'),
       children: [
         {
-          path: '/elementui/menuHome',
+          path: 'menuHome',
           meta:{
             name:'首页'
           },
