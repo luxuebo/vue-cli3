@@ -1,6 +1,6 @@
 <template>
-	<div>
-		
+	<div class='fsty'>
+		<div class='fsty'>测试scoped样式问题</div>
 	</div>
 </template>
 <script>
@@ -15,3 +15,4 @@
 		}
 	}
 </script>
+<style lang='scss' scoped></style>

@@ -10,6 +10,7 @@
     <div @click="toJqueryPage" class="common">click to jquery page</div>
     <h3>5.使用extends</h3>
     <div @click="toExtendsPage" class="common">click to extends page</div>
+    <p>home p</p>
   </div>
 </template>
 
@@ -46,6 +47,9 @@ export default {
     padding: 5px 10px;
     background-color: #ddd;
   }
+}
+p{
+  color:blue;
 }
 </style>
 

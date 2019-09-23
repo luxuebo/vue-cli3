@@ -1,6 +1,6 @@
 <template>
 	<fragment>
-		<h1>1.子父组件传参</h1>
+		<h1 class="fsty">1.子父组件传参</h1>
 		<div>
 			{{ppp.o}}测试页
 			<ChildComponent :pp='param' @modifyp-p='modifypp' class='haha' is-dd>
@@ -14,7 +14,7 @@
 				
 			</ChildComponent>
 		</div>
-		<h1>2.自定义ui组件</h1>
+		<h1 class="fsty">2.自定义ui组件</h1>
 		<div>
             <lxb-button  @click="onClick">确定</lxb-button>
             <lxb-button  @click="onClick" bgcolor="#409eff" color="#fff">确定</lxb-button>
@@ -30,16 +30,19 @@
             placeholder="请输入信息">
             </lxb-input>
         </div>
-        <h1>3.使用jquery</h1>
+        <h1 class="fsty">3.使用jquery</h1>
         <div id='jq'></div>
+        <h1 class="fsty">4.全局自动化注册组件</h1>
         <base-one></base-one>
         <base-header></base-header>
+        <h1 class="fsty">5.测试scoped</h1>
+        <Test />
 
 	</fragment>
 </template>
 <script>
-	const ChildComponent = ()=>import('../../components/test/ChildComponent')//局部注册的异步组件
-	// import ChildComponent from '../components/test/ChildComponent';
+	const ChildComponent = ()=>import('../../components/test/ChildComponent')//局部注册的异步组件,只有改组件需要渲染的时候才加载
+	import Test from '../../components/test/Test';//非异步组件
 	export default{
 		data(){
 			return{
@@ -60,7 +63,8 @@
         	})	
     	},
 		components:{
-			ChildComponent
+			ChildComponent,
+			Test
 		},
 		methods:{
 			onClick(e){
@@ -72,6 +76,8 @@
 		}
 	}
 </script>
-<style>
-	
+<style scoped lang="scss">
+	.fsty{
+		color:orange;
+	}
 </style>
