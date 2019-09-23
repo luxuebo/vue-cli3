@@ -15,7 +15,7 @@ export default new Router({
       meta:{
         name:'测试页'
       },
-      component: () => import('./views/test/index.vue')
+      component: () => import('./views/0.test/index.vue')
     },
     {
       path: '/home',
@@ -29,35 +29,63 @@ export default new Router({
       meta:{
         name:'使用vuex'
       },
-      component: () => import('./views/vuex/index.vue')
+      component: () => import('./views/002.vuex/index.vue')
     },
     {
       path: '/proxy',
       meta:{
         name:'使用代理'
       },
-      component: () => import('./views/proxy/index.vue')
+      component: () => import('./views/003.proxy/index.vue')
     },
     {
       path: '/jquery',
       meta:{
         name:'使用jquery'
       },
-      component: () => import('./views/jquery/index.vue')
+      component: () => import('./views/004.jquery/index.vue')
     },
     {
       path: '/extends',
       meta:{
         name:'使用extends'
       },
-      component: () => import('./views/extends/index.vue')
+      component: () => import('./views/005.extends/index.vue')
+    },
+    {
+      path: '/render',
+      meta:{
+        name:'使用extends'
+      },
+      component: () => import('./views/006.render/index.vue')
+    },
+    {
+      path: '/slot',
+      meta:{
+        name:'slot插槽'
+      },
+      component: () => import('./views/007.slot/index.vue')
+    },
+    {
+      path: '/cus-directive',
+      meta:{
+        name:'自定义指令'
+      },
+      component: () => import('./views/008.cus-directive/index.vue')
+    },
+    {
+      path: '/mixin',
+      meta:{
+        name:'mixin混入'
+      },
+      component: () => import('./views/009.mixin/index.vue')
     },
     {
       path: '/elementui',
       meta:{
         name:'elementui页面'
       },
-      component: () => import('./views/elementuipage/index.vue'),
+      component: () => import('./views/001.elementuipage/index.vue'),
       children: [
         {
           path: 'menuHome',

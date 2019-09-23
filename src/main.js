@@ -20,7 +20,40 @@ Vue.use(vuescroll, {
 Vue.use(ElementUI,{ locale });
 Vue.config.productionTip = false
 Vue.prototype.axios = Axios;
+//全局注册render函数组件
+Vue.component('global-render', {
+  render: function (createElement) {
+    return createElement(
+      'h' + this.level,   // 标签名称
+      this.$slots.default // 子节点数组
+    )
+  },
+  props: {
+    level: {
+      type: Number,
+      required: true
+    }
+  }
+})
+//全局mixin混入
+Vue.mixin({
+  created: function () {
+    var rootOption = this.$options.rootOption
+    if (rootOption) {
+      
+    }
+  }
+})
+//自定义全局指令directive
+Vue.directive('bgcolor', {
+  // 当被绑定的元素插入到 DOM 中时
+  inserted: function (el) {
+    //元素背景颜色
+    el.style.backgroundColor = '#ff6700';
+  }
+})
 new Vue({
+  rootOption: 'hello!',//自定义选项,可通过this.$options获取
   router,
   store,
   render: h => h(App)

@@ -1,55 +1,78 @@
 <template>
   <div class="home">
-    <h3>1.使用ElementUi</h3>
-    <div v-on:click="toElementUi" class="common">click to elementUi Page</div>
-     <h3>2.使用vuex</h3>
-    <div @click="toVuexPage" class="common">click to Vuex page</div>
-     <h3>3.使用Proxy</h3>
-    <div @click="toProxyPage" class="common">click to Proxy Page</div>
-    <h3>4.使用jquery</h3>
-    <div @click="toJqueryPage" class="common">click to jquery page</div>
-    <h3>5.使用extends</h3>
-    <div @click="toExtendsPage" class="common">click to extends page</div>
-    <p>home p</p>
+    <div v-for="(item,index) in listData" :key='index'>
+      <h3>{{item.title}}</h3>
+     <router-link :to='item.route' tag="div"  class="common">{{item.content}}</router-link>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  methods: {
-    /********************* 路由跳转 *****************************************/
-    toElementUi() {
-      this.$router.push({ path: "/elementui" });
-    },
-    toVuexPage() {
-      this.$router.push({ path: "/vuex" });
-    },
-    toProxyPage() {
-      this.$router.push({ path: "/proxy" });
-    },
-    toJqueryPage(){
-      this.$router.push({ path: "/jquery" });
-    },
-    toExtendsPage(){
-       this.$router.push({ path: "/extends" });
+  data(){
+    return{
+      listData:[
+        {
+          title:'001.elementui-demo',
+          route:'/elementui',
+          content:'click to elementui-demo page'
+        },
+        {
+          title:'002.vuex',
+          route:'/vuex',
+          content:'click to vuex page'
+        },
+        {
+          title:'003.proxy',
+          route:'/proxy',
+          content:'click to proxy page'
+        },
+        {
+          title:'004.jquery',
+          route:'/jquery',
+          content:'click to jquery page'
+        },
+        {
+          title:'005.extends',
+          route:'/extends',
+          content:'click to extends page'
+        },
+        {
+          title:'006.render函数',
+          route:'/render',
+          content:'click to render page'
+        },
+        {
+          title:'007.slot插槽',
+          route:'/slot',
+          content:'click to slot page'
+        },
+        {
+          title:'008.自定义指令',
+          route:'/cus-directive',
+          content:'click to customize-directive page'
+        },
+        {
+          title:'009.mixin混入',
+          route:'/mixin',
+          content:'click to mixin page'
+        }
+      ]
     }
   }
 };
 </script>
 <style scoped lang='scss'>
-.home{
+.home {
   text-align: left;
-  h1{
+  h1 {
     padding: 3px 0;
   }
-  .common{
+  .common {
     cursor: pointer;
     padding: 5px 10px;
     background-color: #ddd;
   }
-}
-p{
-  color:blue;
 }
 </style>
 
