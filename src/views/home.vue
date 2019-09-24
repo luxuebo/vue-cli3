@@ -61,6 +61,11 @@ export default {
           title:'010.JSX',
           route:'/jsx',
           content:'click to jsx page'
+        },
+        {
+          title:'010.Plug插件',
+          route:'/plug',
+          content:'click to Plug page'
         }
       ]
     }

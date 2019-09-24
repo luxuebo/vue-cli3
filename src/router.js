@@ -88,6 +88,13 @@ export default new Router({
       component: () => import('./views/010.jsx/index.vue')
     },
     {
+      path: '/plug',
+      meta:{
+        name:'plug'
+      },
+      component: () => import('./views/011.plug/index.vue')
+    },
+    {
       path: '/elementui',
       meta:{
         name:'elementui页面'

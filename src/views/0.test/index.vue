@@ -37,10 +37,10 @@
         <base-header></base-header>
         <h1 class="fsty">5.测试scoped</h1>
         <Test />
-
 	</fragment>
 </template>
 <script>
+	import Vue from 'vue'
 	const ChildComponent = ()=>import('../../components/test/ChildComponent')//局部注册的异步组件,只有改组件需要渲染的时候才加载
 	import Test from '../../components/test/Test';//非异步组件
 	export default{
@@ -56,11 +56,19 @@
 			}
 		},
 		mounted(){
-			var str = '<div id="ww" @click="wowo()">yyyyy</div>'
+			let str = '<div id="ww" @click="wowo()">yyyyy</div>'
         	$('#jq').html(str);
+        	let that = this;
         	$("#ww").click(function(){
-        		console.log('wwwww1')
-        	})	
+        		// that.$myMethod();//实例方法
+        		// Vue.myGlobalMethod()//全局方法
+        		// Vue.myGlobalMethod1()
+        		// Vue.myGlobalMethod2()
+        		// Vue.myGlobalMethod3()
+        		// that.$myGlobalMethod()
+        	})
+        	
+
     	},
 		components:{
 			ChildComponent,
