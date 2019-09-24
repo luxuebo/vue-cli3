@@ -37,9 +37,11 @@
         <base-header></base-header>
         <h1 class="fsty">5.测试scoped</h1>
         <Test />
+		<div class="qq">scss文件</div>
 	</fragment>
 </template>
 <script>
+// import '../../style/test.scss';
 	import Vue from 'vue'
 	const ChildComponent = ()=>import('../../components/test/ChildComponent')//局部注册的异步组件,只有改组件需要渲染的时候才加载
 	import Test from '../../components/test/Test';//非异步组件
@@ -85,6 +87,7 @@
 	}
 </script>
 <style scoped lang="scss">
+@import '../../style/test.scss';
 	.fsty{
 		color:orange;
 	}
