@@ -37,6 +37,11 @@ MyPlugin.install = function (Vue, options) {
     Vue.prototype[key] = GlobalInstanceMethods[key]
   })
   //5.添加全局过滤器filter
+ /* Vue.filter('capitalize', function (value) {
+    if (!value) return ''
+    value = value.toString()
+    return value.charAt(0).toUpperCase() + value.slice(1)
+  })*/
   Object.keys(GlobalFilters).forEach(function(key){
     Vue.filter(GlobalFilters[key].filterName,GlobalFilters[key].filterHander)
   })
