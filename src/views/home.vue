@@ -63,9 +63,14 @@ export default {
           content:'click to jsx page'
         },
         {
-          title:'010.Plug插件',
+          title:'011.Plug插件',
           route:'/plug',
           content:'click to Plug page'
+        },
+        {
+          title:'012.filter',
+          route:'/filter',
+          content:'click to filter page'
         }
       ]
     }

@@ -1,7 +1,8 @@
-import GlobalMethods from './global-methods/index.js'
-import GlobalDirectives from './global-directives/index.js'
-import GlobalMixin from './global-mixin/index.js'
-import GlobalInstanceMethods from './global-instance-methods/index.js'
+import GlobalMethods from './global-methods/index.js';
+import GlobalDirectives from './global-directives/index.js';
+import GlobalMixin from './global-mixin/index.js';
+import GlobalInstanceMethods from './global-instance-methods/index.js';
+import GlobalFilters from './global-filter/index.js'
 let MyPlugin = {};
 MyPlugin.install = function (Vue, options) {
   // 1. 添加全局方法或属性
@@ -34,6 +35,10 @@ MyPlugin.install = function (Vue, options) {
   }*/
   Object.keys(GlobalInstanceMethods).forEach(function(key){
     Vue.prototype[key] = GlobalInstanceMethods[key]
+  })
+  //5.添加全局过滤器filter
+  Object.keys(GlobalFilters).forEach(function(key){
+    Vue.filter(GlobalFilters[key].filterName,GlobalFilters[key].filterHander)
   })
 }
 export default MyPlugin

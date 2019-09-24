@@ -95,6 +95,13 @@ export default new Router({
       component: () => import('./views/011.plug/index.vue')
     },
     {
+      path: '/filter',
+      meta:{
+        name:'filter过滤器'
+      },
+      component: () => import('./views/012.filter/index.vue')
+    },
+    {
       path: '/elementui',
       meta:{
         name:'elementui页面'
