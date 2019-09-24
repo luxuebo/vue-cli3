@@ -81,6 +81,13 @@ export default new Router({
       component: () => import('./views/009.mixin/index.vue')
     },
     {
+      path: '/jsx',
+      meta:{
+        name:'jsx'
+      },
+      component: () => import('./views/010.jsx/index.vue')
+    },
+    {
       path: '/elementui',
       meta:{
         name:'elementui页面'

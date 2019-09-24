@@ -56,6 +56,11 @@ export default {
           title:'009.mixin混入',
           route:'/mixin',
           content:'click to mixin page'
+        },
+        {
+          title:'010.JSX',
+          route:'/jsx',
+          content:'click to jsx page'
         }
       ]
     }
