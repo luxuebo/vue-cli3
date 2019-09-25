@@ -10,7 +10,7 @@
       "babel-core": "7.0.0-bridge.0",<br>
       "babel-jest": "^23.6.0",<br>
       "vue-template-compiler": "^2.6.10"</p>
-    <h3 class="textleft title2">2.根路径下新建jest.config.js文件和test/index.test.js</h3>
+    <h3 class="textleft title2">2.根路径下新建jest.config.js文件和unit-test/index.test.js</h3>
     <h3 class="textleft title2">3.package.json的script中加入以下内容</h3>
     <div class="textleft title211">"test": "vue-cli-service test:unit"</div>
     <h3 class="textleft title2">4.参考文档</h3>
@@ -28,7 +28,7 @@
       }
     },
     created () {
-      this.message = '单元测试'
+      this.message = '单元测试(jest)'
     }
   }
 </script>

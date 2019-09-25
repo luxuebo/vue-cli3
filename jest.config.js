@@ -20,7 +20,7 @@ module.exports = {
       'jest-serializer-vue'
     ],
     testMatch: [
-      '**/test/**/*.test.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)'
+      '**/unit-test/**/*.test.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)'
     ],
     testURL: 'http://localhost/',
     watchPlugins: [

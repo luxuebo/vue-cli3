@@ -18,7 +18,7 @@ describe('testIndex', () => {
   // 检查 mount 中的组件实例
   test('correctly sets the message when created', () => {
     const vm = new Vue(testIndex).$mount()
-    expect(vm.message).toBe('单元测试')//检查mounted之后的实例data中的message是否是'单元测试'
+    expect(vm.message).toBe('单元测试(jest)')//检查mounted之后的实例data中的message是否是'单元测试(jest)'
   })
 
   // 创建一个实例并检查渲染输出
