@@ -1,30 +1,30 @@
 import Vue from 'vue'
-import test01 from '@/views/013.unit-test/test01.vue'
+import testIndex from '@/views/013.unit-test/index.vue'
 
 
-describe('test01', () => {
+describe('testIndex', () => {
   // 检查原始组件选项
-  it('has a created hook', () => {
-    expect(typeof test01.created).toBe('function')
+  test('has a created hook', () => {
+    expect(typeof testIndex.created).toBe('function')//检查原始组件的生命周期函数created是否是函数
   })
 
   // 评估原始组件选项中的函数的结果
-  it('sets the correct default data', () => {
-    expect(typeof test01.data).toBe('function')
-    const defaultData = test01.data()
-    expect(defaultData.message).toBe('hello!')
+  test('sets the correct default data', () => {
+    expect(typeof testIndex.data).toBe('function')//检查组件中的data是否是函数
+    const defaultData = testIndex.data()
+    expect(defaultData.message).toBe('hello!')//检查原始组件data中的message是否是'hellow!'
   })
 
   // 检查 mount 中的组件实例
-  it('correctly sets the message when created', () => {
-    const vm = new Vue(test01).$mount()
-    expect(vm.message).toBe('bye!')
+  test('correctly sets the message when created', () => {
+    const vm = new Vue(testIndex).$mount()
+    expect(vm.message).toBe('单元测试')//检查mounted之后的实例data中的message是否是'单元测试'
   })
 
   // 创建一个实例并检查渲染输出
-  it('renders the correct message', () => {
-    const Constructor = Vue.extend(test01)
+  test('renders the correct message', () => {
+    const Constructor = Vue.extend(testIndex)
     const vm = new Constructor().$mount()
-    expect(vm.$el.textContent).toBe('bye!')
+    expect(vm.$el.tagName.toLowerCase()).toBe('div')//检查组件根元素是否是div
   })
 })

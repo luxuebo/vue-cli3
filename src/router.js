@@ -102,6 +102,13 @@ export default new Router({
       component: () => import('./views/012.filter/index.vue')
     },
     {
+      path: '/unit-test',
+      meta:{
+        name:'unit-test单元测试'
+      },
+      component: () => import('./views/013.unit-test/index.vue')
+    },
+    {
       path: '/elementui',
       meta:{
         name:'elementui页面'
