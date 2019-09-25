@@ -38,6 +38,7 @@
         <h1 class="fsty">5.测试scoped</h1>
         <Test />
 		<div class="qq">scss文件</div>
+		<div v-html="hml">123</div>
 	</fragment>
 </template>
 <script>
@@ -54,7 +55,8 @@
 				content:'content',
 				param:'woshifather',
 				input1:'haha',
-				messageList:['12','23','34']
+				messageList:['12','23','34'],
+				hml:'<p v-on:click="vHtml">v-html</p>'
 			}
 		},
 		mounted(){
@@ -82,7 +84,10 @@
         	},
         	modifypp(value){
         		this.param = value;
-        	}
+			},
+			vHtml(){
+				console.log('点击了v-html中的事件')
+			}
 		}
 	}
 </script>
