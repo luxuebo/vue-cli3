@@ -39,5 +39,8 @@ new Vue({
   rootOption: 'hello!',//自定义选项,可通过this.$options获取
   router,
   store,
+  mounted(){
+    // console.log(this.$options.rootOption)
+  },
   render: h => h(App)
 }).$mount('#app')

@@ -2,8 +2,7 @@
 	<fragment>
 		<h1 class="fsty">1.子父组件传参</h1>
 		<div>
-			{{ppp.o}}测试页
-			<ChildComponent :pp='param' @modifyp-p='modifypp' class='haha' is-dd>
+			<ChildComponent :pp='param' @modifyp-p='modifypp' class='haha' :is-dd='content'>
 				<template v-slot:default='{user,info}'><!--插槽作用域:可以使用组件data -->
 					<h1 style="color:pink;">{{user.name}}</h1>
 					{{info}}
@@ -37,8 +36,8 @@
         <base-header></base-header>
         <h1 class="fsty">5.测试scoped</h1>
         <Test />
-		<div class="qq">scss文件</div>
-		<div v-html="hml">123</div>
+		<div class="qq">6.scss文件</div>
+		<div v-html="hml"></div>
 	</fragment>
 </template>
 <script>
@@ -49,30 +48,20 @@
 	export default{
 		data(){
 			return{
-				ppp:{
-					o:1234
-				},
 				content:'content',
 				param:'woshifather',
 				input1:'haha',
 				messageList:['12','23','34'],
-				hml:'<p v-on:click="vHtml">v-html</p>'
+				hml:'<p v-on:click="vHtml">v-html:不能使用vue的语法,如v-bind,v-on,等</p>'
 			}
 		},
 		mounted(){
-			let str = '<div id="ww" @click="wowo()">yyyyy</div>'
+			let str = '<div id="jquerClickHandler">绑定jquery点击事件</div>'
         	$('#jq').html(str);
         	let that = this;
-        	$("#ww").click(function(){
-        		// that.$myMethod();//实例方法
-        		// Vue.myGlobalMethod()//全局方法
-        		// Vue.myGlobalMethod1()
-        		// Vue.myGlobalMethod2()
-        		// Vue.myGlobalMethod3()
-        		// that.$myGlobalMethod()
+        	$("#jquerClickHandler").click(function(){
+				console.log('jquery 事件')
         	})
-        	
-
     	},
 		components:{
 			ChildComponent,
