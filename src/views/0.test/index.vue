@@ -36,8 +36,16 @@
         <base-header></base-header>
         <h1 class="fsty">5.测试scoped</h1>
         <Test />
-		<div class="qq">6.scss文件</div>
+		<h1 class="qq fsty">6.scss文件</h1>
 		<div v-html="hml"></div>
+		<h1  class="fsty">7.数组的更新检测</h1>
+		<p>{{ dataList[0] }}</p>
+		<p>length:{{ dataList.length }}</p>
+		<button @click='changeDataList'>点击改变数组的值</button>
+		<h1>8.对象的变更检测</h1>
+		<p>{{ object.region.proice.name  }}:{{ object.pp}}--{{object.type}} --{{object.region.proice.age}}</p>
+		<button @click="changeObject">点击修改键值</button>
+
 	</fragment>
 </template>
 <script>
@@ -52,7 +60,16 @@
 				param:'woshifather',
 				input1:'haha',
 				messageList:['12','23','34'],
-				hml:'<p v-on:click="vHtml">v-html:不能使用vue的语法,如v-bind,v-on,等</p>'
+				hml:'<p v-on:click="vHtml">v-html:不能使用vue的语法,如v-bind,v-on,等</p>',
+				dataList:['q','w'],
+				object:{
+					region:{
+						proice:{
+							name:'hebei'
+						}
+					},
+					type:'hao'
+				}
 			}
 		},
 		mounted(){
@@ -61,7 +78,15 @@
         	let that = this;
         	$("#jquerClickHandler").click(function(){
 				console.log('jquery 事件')
-        	})
+			})
+			//数组的更新检测
+			// this.dataList[0] = '改变dataList[0]';//视图可以更新
+			//this.dataList.length = 3;//视图可以更新
+
+			//对象的变更检测
+			// this.object.region.proice.name = 'henan';//视图可以更新
+			// this.object.pp = 'pp'//可以添加属性
+
     	},
 		components:{
 			ChildComponent,
@@ -76,6 +101,31 @@
 			},
 			vHtml(){
 				console.log('点击了v-html中的事件')
+			},
+			changeDataList(){
+				//1.改变数组元素使视图更新
+				//方式一:
+				// this.$set(this.dataList,0,'改变dataList[0]');
+				//方式二:
+				// this.dataList.splice(0,1,'改变dataList[0]')
+				//方式三:
+				//this.dataList[0] = '改变dataList[0]';
+				// this.$forceUpdate()
+				//方式四:
+				// this.dataList[0] = '改变dataList[0]';
+				// this.dataList.splice(this.dataList.length)
+
+				//2.使数组长度为响应式的
+				//this.dataList.splice(1);//只能减少长度,不能增加长度
+			},
+			changeObject(){
+				//对象的更新检测
+				//1.修改属性值可以更新视图
+				// this.object.region.proice.name = 'henan';
+				//2.添加属性不可以更新视图(Vue 不允许动态添加根级别的响应式属性)
+				// this.object.region.proice.age = '100';
+				//3.通过Vue.set()添加对象属性
+				// this.$set(this.object.region.proice,'age',100)
 			}
 		}
 	}
