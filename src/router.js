@@ -109,6 +109,13 @@ export default new Router({
       component: () => import('./views/013.unit-test/index.vue')
     },
     {
+      path: '/provide-inject',
+      meta:{
+        name:'provide-inject'
+      },
+      component: () => import('./views/014.provide and inject/index.vue')
+    },
+    {
       path: '/elementui',
       meta:{
         name:'elementui页面'

@@ -76,6 +76,11 @@ export default {
           title:'013.unit-test单元测试',
           route:'/unit-test',
           content:'click to unit-test page'
+        },
+        {
+          title:'014.provide/inject',
+          route:'/provide-inject',
+          content:'click toprovide/inject page'
         }
       ]
     }
