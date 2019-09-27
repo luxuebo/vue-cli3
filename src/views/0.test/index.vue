@@ -33,7 +33,7 @@
     <base-one></base-one>
     <base-header></base-header>
     <h1 class="fsty">5.测试scoped</h1>
-    <Test />
+    <Test/>
     <h1 class="qq fsty">6.scss文件</h1>
     <div v-html="hml"></div>
     <h1 class="fsty">7.数组的更新检测</h1>
@@ -44,29 +44,37 @@
     <p>{{ object.region.proice.name }}:{{ object.pp}}--{{object.type}} --{{object.region.proice.age}}</p>
     <button @click="changeObject">点击修改键值</button>
     <h1>9.v-for 为什么要使用key</h1>
-	<!-- key的值要和数据关联才会有作用，否则无效，以下例子的key使用的是数据中的id属性，不能使用遍历数据数组的下标作为key，其作用是使数据和dom关联起来。-->
-	<h4>9.1不使用key</h4>
-	 <div>
-      <input type="text" v-model="name" />
+    <!-- key的值要和数据关联才会有作用，否则无效，以下例子的key使用的是数据中的id属性，不能使用遍历数据数组的下标作为key，其作用是使数据和dom关联起来。-->
+    <h4>9.1不使用key</h4>
+    <div>
+      <input type="text" v-model="name">
       <button @click="add">添加</button>
     </div>
     <ul>
       <li v-for="(item) in list">
-        <input type="checkbox" />
+        <input type="checkbox">
         {{item.name}}
       </li>
     </ul>
-	<h4>9.2使用key</h4>
-	<div>
-      <input type="text" v-model="name1" />
+    <h4>9.2使用key</h4>
+    <div>
+      <input type="text" v-model="name1">
       <button @click="add1">添加</button>
     </div>
-	<ul>
-      <li v-for="(item) in list1" :key='item.id'>
-        <input type="checkbox" />
+    <ul>
+      <li v-for="(item) in list1" :key="item.id">
+        <input type="checkbox">
         {{item.name}}
       </li>
     </ul>
+    <h1>10.动态组件</h1>
+    <button
+      v-for="tab in tabs"
+      v-bind:key="tab"
+      v-bind:class="['tab-button', { active: currentTab === tab }]"
+      v-on:click="switchTabs(tab)"
+    >{{ tab }}</button>
+    <component v-bind:is="currentTabComponent" class="tab" :aa='aa'></component>
   </fragment>
 </template>
 <script>
@@ -74,13 +82,16 @@
 import Vue from "vue";
 const ChildComponent = () => import("../../components/test/ChildComponent"); //局部注册的异步组件,只有改组件需要渲染的时候才加载
 import Test from "../../components/test/Test"; //非异步组件
+import dynamic1 from "../../components/test/dynamic-component1";
+import dynamic2 from "../../components/test/dynamic-component2";
+
 export default {
   data() {
     return {
       content: "content",
       param: "woshifather",
       input1: "haha",
-	  messageList: ["12", "23", "34"],
+      messageList: ["12", "23", "34"],
       hml:
         '<p v-on:click="vHtml">v-html:不能使用vue的语法,如v-bind,v-on,等</p>',
       dataList: ["q", "w"],
@@ -92,21 +103,29 @@ export default {
         },
         type: "hao"
       },
-	  name: "",
-	  name1:'',
-	  newId: 3,
-	  newId1: 3,
+      name: "",
+      name1: "",
+      newId: 3,
+      newId1: 3,
       list: [
         { id: 1, name: "李斯" },
         { id: 2, name: "吕不韦" },
         { id: 3, name: "嬴政" }
-	  ],
-	  list1: [
+      ],
+      list1: [
         { id: 1, name: "李斯1" },
         { id: 2, name: "吕不韦1" },
         { id: 3, name: "嬴政1" }
-      ]
+      ],
+      currentTab: "dynamic1",
+      tabs: ["dynamic1", "dynamic2"],
+      aa:''
     };
+  },
+  computed: {
+    currentTabComponent: function() {
+      return this.currentTab.toLowerCase();
+    }
   },
   mounted() {
     let str = '<div id="jquerClickHandler">绑定jquery点击事件</div>';
@@ -125,7 +144,9 @@ export default {
   },
   components: {
     ChildComponent,
-    Test
+    Test,
+    dynamic1,
+    dynamic2
   },
   methods: {
     onClick(e) {
@@ -165,13 +186,16 @@ export default {
       //注意这里是unshift
       this.list.unshift({ id: ++this.newId, name: this.name });
       this.name = "";
-	},
-	add1() {
+    },
+    add1() {
       //注意这里是unshift
       this.list1.unshift({ id: ++this.newId1, name: this.name1 });
       this.name1 = "";
-	}
-	
+    },
+    switchTabs(tab){
+      this.currentTab = tab;
+      this.aa = tab;
+    }
   }
 };
 </script>
@@ -179,5 +203,25 @@ export default {
 @import "../../style/test.scss";
 .fsty {
   color: orange;
+}
+.tab-button {
+  padding: 6px 10px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  background: #f0f0f0;
+  margin-bottom: -1px;
+  margin-right: -1px;
+}
+.tab-button:hover {
+  background: #e0e0e0;
+}
+.tab-button.active {
+  background: #e0e0e0;
+}
+.tab {
+  border: 1px solid #ccc;
+  padding: 10px;
 }
 </style>
