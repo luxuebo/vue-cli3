@@ -45,7 +45,7 @@ new Vue({
   render: h => h(App)
 }).$mount('#app')
 // console.log(store.state)
-// 页面刷新之前,将vuex中的存到localStorage中
-window.addEventListener('beforeunload',function(){
-  localStorage.setItem('USERNMAE',store.state.username)
-})
+// 页面刷新之前,将vuex中的存到sessionStorage中
+// window.addEventListener('beforeunload',function(){
+//   sessionStorage.setItem('USERNMAE',store.state.username)
+// })

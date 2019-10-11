@@ -24,10 +24,12 @@ export default {
 
     },
     methods:{
-        ...mapMutations(["updateUsername",'updateAge']),
+        ...mapMutations(["updateUsername",'updateAge','undateTest']),
         ...mapActions(["asyncUpdateUsername"]),
         clickModifyState(){
             this.updateUsername('花和尚')
+            this.undateTest('test1')
+
         },
         clickAsyncModifyState(){
             this.asyncUpdateUsername('玉麒麟')

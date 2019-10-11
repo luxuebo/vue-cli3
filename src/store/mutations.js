@@ -40,4 +40,7 @@ export default {
 	set_active_index(state, index) {
 		state.activeIndex = index + '';
 	},
+	undateTest(state,name){
+		state.test.name = name;
+	}
 }

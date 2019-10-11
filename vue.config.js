@@ -39,9 +39,7 @@ module.exports = {
 
     },
     configureWebpack: {
-
        plugins: [
-
           new webpack.ProvidePlugin({
 
             $:"jquery",
@@ -52,7 +50,7 @@ module.exports = {
 
           })
 
-        ]
-
+        ],
+        devtool:'source-map'
     }
 }
