@@ -11,3 +11,12 @@
   text-align: center;
 }
 </style>
+<script>
+export default {
+  mounted(){
+    //页面加载完毕删除localStroge中的USERNAME
+    localStorage.removeItem('USERNMAE');
+  }
+}
+</script>
+
