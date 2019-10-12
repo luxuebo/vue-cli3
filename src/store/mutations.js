@@ -1,5 +1,3 @@
-import { callbackify } from "util";
-import Vue from 'vue'
 import router from '../router'
 
 export default {
@@ -39,8 +37,5 @@ export default {
 	// 设置当前激活的tab
 	set_active_index(state, index) {
 		state.activeIndex = index + '';
-	},
-	undateTest(state,name){
-		state.test.name = name;
 	}
 }

@@ -12,16 +12,14 @@
 }
 </style>
 <script>
-import { keepStateAll,keepStatePart } from  './utils/keepState'
+import { keepState } from  './utils/keepState'
 export default {
   created() {
-    // keepStateAll();
-    keepStatePart(['username','test'])
+    keepState(['username','tabsList','activeIndex'])
   },
   mounted() {
     //页面加载完毕删除sessionStorage中的USERNAME
     // sessionStorage.removeItem("USERNMAE");
-    // console.log( process.env.NODE_ENV)
   }
 };
 </script>

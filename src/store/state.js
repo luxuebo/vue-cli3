@@ -4,9 +4,6 @@ export default {
     // username:username?username:'孝义三郎',
     username:'孝义三郎',
     age:'36',
-    tabsList:[],//所有打开的路由
-    activeIndex:'' ,//激活状态
-    test:{
-      name:'123'
-    }
+    tabsList:[],//菜单所有打开的tab
+    activeIndex:'' ,//tab激活状态
   }
